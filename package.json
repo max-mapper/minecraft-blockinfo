@@ -1,6 +1,6 @@
 {
   "name": "minecraft-blockinfo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "hashtable for looking up minecraft block types from binary level data",
   "main": "index.js",
   "scripts": {

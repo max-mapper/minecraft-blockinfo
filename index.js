@@ -1,4 +1,152 @@
-module.exports = {
+// mostly from http://www.minecraftwiki.net/wiki/Data_values#Data
+
+// TODO (fork and contribute!): water, lava, fire, saplings, wood rotation, decay of leaves, slab orientation, piston, piston extension, redstone wire, crops, sign posts, farmland, door, rails, levers, pressure plates, buttons, snowfall, cacti, sugar cane, jukebox, pumpkins, cake, redstone repeaters, trapdoors, monster egg, stone brick, mushrooms, stems, vines, fence gates, nether wart, brewing stand, cauldron, end portal block, cocoas, tripwire hook, tripwire, flower pots, heads, dyes, anvil, potions, status effects, spawn eggs, golden apple
+
+module.exports.colored_wool = {
+  "0":   {"color": "ffffff", "name": "White"},
+  "1":   {"color": "ffa800", "name": "Orange"},
+  "2":   {"color": "ea01ff", "name": "Magenta"},
+  "3":   {"color": "b1eeff", "name": "Light Blue"},
+  "4":   {"color": "fdfa00", "name": "Yellow"},
+  "5":   {"color": "54ff00", "name": "Lime"},
+  "6":   {"color": "ff00ea", "name": "Pink"},
+  "7":   {"color": "b8b8b8", "name": "Gray"},
+  "8":   {"color": "ebebeb", "name": "Light Gray"},
+  "9":   {"color": "2efff8", "name": "Cyan"},
+  "10":  {"color": "9e0ec7", "name": "Purple"},
+  "11":  {"color": "1334ff", "name": "Blue"},
+  "12":  {"color": "896862", "name": "Brown"},
+  "13":  {"color": "0c840f", "name": "Green"},
+  "14":  {"color": "f00000", "name": "Red"},
+  "15":  {"color": "000000", "name": "Black"}
+}
+
+// alternative wool colors
+// • White      - FFe4e4e4 
+// • Light Gray - FFa0a7a7 
+// • Dark Gray  - FF414141 
+// • Black      - FF181414 
+// • Red        - FF9e2b27 
+// • Orange     - FFea7e35 
+// • Yellow     - FFc2b51c 
+// • Lime Green - FF39ba2e 
+// • Green      - FF364b18 
+// • Light Blue - FF6387d2 
+// • Cyan       - FF267191 
+// • Blue       - FF253193 
+// • Purple     - FF7e34bf 
+// • Magenta    - FFbe49c9 
+// • Pink       - FFd98199 
+// • Brown      - FF56331c
+
+module.exports.wooden_plank = {
+  "0": "oak_wood_planks",
+  "1": "spruce_wood_planks",
+  "2": "birch_wood_planks",
+  "3": "jungle_wood_planks"
+}
+
+module.exports.wood = {
+  "0": "oak_wood",
+  "1": "spruce_wood",
+  "2": "birch_wood",
+  "3": "jungle_wood"
+}
+
+module.exports.leaves = {
+  "0": "oak_leaves",
+  "1": "spruce_leaves",
+  "2": "birch_leaves",
+  "3": "jungle_leaves"
+}
+
+module.exports.torches = {
+  "1": "east",
+  "2": "west",
+  "3": "south",
+  "4": "north",
+  "5": "floor",
+  "6": "ground" // not sure what the diff is between the last two
+}
+
+module.exports.slabs = {
+  "0": "stone_slab",
+  "1": "sandstone_slab",
+  "2": "wooden_slab",
+  "3": "cobblestone_slab",
+  "4": "brick_slab",
+  "5": "stone_brick_slab",
+  "6": "nether_brick_slab",
+  "7": "quartz_slab",
+  // double slabs only:
+  "8": "smooth_stone_slab",
+  "9": "smooth_sandstone_slab",
+  "15": "tile_quartz_slab" // note the underside
+}
+
+module.exports.wooden_slab = {
+  "0": "oak_wood_slab", 
+  "1": "spruce_wood_slab",
+  "2": "birch_wood_slab",
+  "3": "jungle_wood_slab"
+}
+
+module.exports.sandstone = {
+  "0": "normal",
+  "1": "chiseled",
+  "2": "smooth"
+}
+
+module.exports.bed = {
+  "0": "Head is pointing south",
+  "1": "Head is pointing west",
+  "2": "Head is pointing north",
+  "3": "Head is pointing east"
+}
+
+module.exports.grass = {
+  "0": "shrub", // (identical in appearance to block Dead Bush when placed, but acts like grass or fern)
+  "1": "grass",
+  "2": "fern",
+}
+
+// ascending direction
+module.exports.stairs = {
+  "0": "east",
+  "1": "west",
+  "2": "south",
+  "3": "north"
+}
+
+// facing direction
+module.exports.attachments = {
+  "0": "down",
+  "1": "up",
+  "2": "north",
+  "3": "south",
+  "4": "west",
+  "5": "east"
+}
+
+module.exports.cobblestone_wall = {
+  "0": "cobblestone",
+  "1": "moss_stone"
+}
+
+module.exports.quartz = {
+  "0": "quartz_block",
+  "1": "chiseled_quartz_block",
+  "2": "pillar_quartz_block_vertical",
+  "3": "pillar_quartz_block_north_south",
+  "4": "pillar_quartz_block_east_west"
+}
+
+module.exports.coal = {
+  "0": "coal",
+  "1": "charcoal"
+}
+
+module.exports.blocks = {
   "_-1": {
     id: -10,
     type: "fill"
@@ -21,7 +169,8 @@ module.exports = {
   },
   "_5": {
     "type": "wooden_plank",
-    "id": 5
+    "id": 5,
+    "data": module.exports.wooden_plank
   },
   "_6": {
     "type": "sapling",
@@ -69,11 +218,13 @@ module.exports = {
   },
   "_17": {
     "type": "wood",
-    "id": 17
+    "id": 17,
+    "data": module.exports.wood
   },
   "_18": {
     "type": "leaves",
-    "id": 18
+    "id": 18,
+    "data": module.exports.leaves
   },
   "_19": {
     "type": "sponge",
@@ -93,11 +244,13 @@ module.exports = {
   },
   "_23": {
     "type": "dispenser",
-    "id": 23
+    "id": 23,
+    "data": module.exports.attachments
   },
   "_24": {
     "type": "sandstone",
-    "id": 24
+    "id": 24,
+    "data": module.exports.sandstone
   },
   "_25": {
     "type": "note_block",
@@ -105,7 +258,8 @@ module.exports = {
   },
   "_26": {
     "type": "colored_wool",
-    "id": 26
+    "id": 26,
+    "data": module.exports.colored_wool
   },
   "_27": {
     "type": "powered_rail",
@@ -125,7 +279,8 @@ module.exports = {
   },
   "_31": {
     "type": "grass",
-    "id": 31
+    "id": 31,
+    "data": module.exports.grass
   },
   "_32": {
     "type": "dead_bush",
@@ -172,12 +327,14 @@ module.exports = {
     "id": 42
   },
   "_43": {
-    "type": "double_stone_slab",
-    "id": 43
+    "type": "double_slabs",
+    "id": 43,
+    "data": module.exports.slabs
   },
   "_44": {
-    "type": "stone_slab",
-    "id": 44
+    "type": "slabs",
+    "id": 44,
+    "data": module.exports.slabs
   },
   "_45": {
     "type": "brick",
@@ -201,7 +358,8 @@ module.exports = {
   },
   "_50": {
     "type": "torch",
-    "id": 50
+    "id": 50,
+    "data": module.exports.torches
   },
   "_51": {
     "type": "fire",
@@ -213,11 +371,13 @@ module.exports = {
   },
   "_53": {
     "type": "wooden_stairs",
-    "id": 53
+    "id": 53,
+    "data": module.exports.stairs
   },
   "_54": {
     "type": "chest",
-    "id": 54
+    "id": 54,
+    "data": module.exports.attachments
   },
   "_55": {
     "type": "redstone_wire",
@@ -245,7 +405,8 @@ module.exports = {
   },
   "_61": {
     "type": "furnace",
-    "id": 61
+    "id": 61,
+    "data": module.exports.attachments
   },
   "_62": {
     "type": "burning_furnace",
@@ -261,7 +422,8 @@ module.exports = {
   },
   "_65": {
     "type": "ladder",
-    "id": 65
+    "id": 65,
+    "data": module.exports.attachments
   },
   "_66": {
     "type": "minecart_track",
@@ -269,11 +431,13 @@ module.exports = {
   },
   "_67": {
     "type": "cobblestone_stairs",
-    "id": 67
+    "id": 67,
+    "data": module.exports.stairs
   },
   "_68": {
     "type": "wall_sign",
-    "id": 68
+    "id": 68,
+    "data": module.exports.attachments
   },
   "_69": {
     "type": "lever",
@@ -301,11 +465,13 @@ module.exports = {
   },
   "_75": {
     "type": "redstone_torch_off",
-    "id": 75
+    "id": 75,
+    "data": module.exports.torches
   },
   "_76": {
     "type": "redstone_torch_on",
-    "id": 76
+    "id": 76,
+    "data": module.exports.torches
   },
   "_77": {
     "type": "stone_button",
@@ -373,7 +539,8 @@ module.exports = {
   },
   "_95": {
     "type": "locked_chest",
-    "id": 95
+    "id": 95,
+    "data": module.exports.attachments
   },
   "_96": {
     "type": "trapdoor",
@@ -417,11 +584,13 @@ module.exports = {
   },
   "_108": {
     "type": "brick_stairs",
-    "id": 108
+    "id": 108,
+    "data": module.exports.stairs
   },
   "_109": {
     "type": "stone_brick_stairs",
-    "id": 109
+    "id": 109,
+    "data": module.exports.stairs
   },
   "_110": {
     "type": "mycelium",
@@ -441,7 +610,8 @@ module.exports = {
   },
   "_114": {
     "type": "nether_brick_stairs",
-    "id": 114
+    "id": 114,
+    "data": module.exports.stairs
   },
   "_116": {
     "type": "enchantment_table",
@@ -461,7 +631,8 @@ module.exports = {
   },
   "_126": {
     "type": "wooden_slab",
-    "id": 126
+    "id": 126,
+    "data": module.exports.wooden_slab
   },
   "_127": {
     "type": "cocoa_plant",
@@ -469,7 +640,8 @@ module.exports = {
   },
   "_128": {
     "type": "sandstone_stairs",
-    "id": 128
+    "id": 128,
+    "data": module.exports.stairs
   },
   "_129": {
     "type": "emerald_ore",
@@ -477,7 +649,8 @@ module.exports = {
   },
   "_130": {
     "type": "ender_chest",
-    "id": 130
+    "id": 130,
+    "data": module.exports.attachments
   },
   "_133": {
     "type": "block_of_emerald",
@@ -485,15 +658,18 @@ module.exports = {
   },
   "_134": {
     "type": "spruce_wood_stairs",
-    "id": 134
+    "id": 134,
+    "data": module.exports.stairs
   },
   "_135": {
     "type": "birch_wood_stairs",
-    "id": 135
+    "id": 135,
+    "data": module.exports.stairs
   },
   "_136": {
     "type": "jungle_wood_stairs",
-    "id": 136
+    "id": 136,
+    "data": module.exports.stairs
   },
   "_137": {
     "type": "command_block",
@@ -505,7 +681,8 @@ module.exports = {
   },
   "_139": {
     "type": "cobblestone_wall",
-    "id": 139
+    "id": 139,
+    "data": module.exports.cobblestone_wall
   },
   "_143": {
     "type": "wooden_button",
@@ -514,6 +691,70 @@ module.exports = {
   "_145": {
     "type": "anvil",
     "id": 145
+  },
+  "_146" : {
+    "id": 146, 
+    "type": "trapped_chest",
+    "data": module.exports.attachments
+  },
+  "_147": {
+    "id": 147, 
+    "type": "weighted_pressure_plate_light"
+  },
+  "_148": {
+    "id": 148, 
+    "type": "weighted_pressure_plate_heavy"
+  },
+  "_149": {
+    "id": 149, 
+    "type": "redstone_comparator_inactive"
+  },
+  "_150": {
+    "id": 150, 
+    "type": "redstone_comparator_active"
+  },
+  "_151": {
+    "id": 151, 
+    "type": "daylight_sensor"
+  },
+  "_152": {
+    "id": 152, 
+    "type": "redstone_block"
+  },
+  "_153": {
+    "id": 153,
+    "type": "nether_quartz_ore"
+  },
+  "_154": {
+    "id": 154, 
+    "type": "hopper",
+    "data": module.exports.attachments
+  },
+  "_155": {
+    "id": 155, 
+    "type": "quartz_block"
+  },
+  "_156": {
+    "id": 156, 
+    "type": "quartz_stairs",
+    "data": module.exports.stairs
+  },
+  "_157": {
+    "id": 157, 
+    "type": "activator_rail"
+  },
+  "_158": {
+    "id": 158, 
+    "type": "dropper",
+    "data": module.exports.attachments
+  },
+  "_170": {
+    "id": 170, 
+    "type": "hay_bale"
+  },
+  "_171": {
+    "id": 171, 
+    "type": "carpet"
   },
   "_260": {
     "type": "apple",
@@ -525,7 +766,8 @@ module.exports = {
   },
   "_263": {
     "type": "coal",
-    "id": 263
+    "id": 263,
+    "data": module.exports.coal
   },
   "_264": {
     "type": "diamond",
@@ -703,6 +945,11 @@ module.exports = {
     "type": "cake",
     "id": 354
   },
+  "_354": {
+    "type": "bed",
+    "id": 355,
+    "data": module.exports.bed
+  },
   "_356": {
     "type": "redstone_repeater",
     "id": 356
@@ -863,4 +1110,4 @@ module.exports = {
     "type": "firework_star",
     "id": 402
   }
-};
+}
